@@ -14,7 +14,7 @@ const args = require('argsparser').parse();
 const server = new Hapi.Server();
 
 const port = args['-port'] || process.env.PORT || config.webapp.port || 9090;  // Config application Port
-const swaggerHost = config.webapp.host || 'localhost:' + port;  // Config Swagger Host (shown in swagger front doc)
+const swaggerHost = `${config.webapp.host}:${port}` || `localhost:${port}`;  // Config Swagger Host (shown in swagger front doc)
 
 server.connection({
   host: '0.0.0.0',
