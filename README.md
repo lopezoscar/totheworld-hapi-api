@@ -38,4 +38,4 @@ is a public endpoint.
 ## Authorization with scopes
 There are scopes associated to each apikey.
 For example: GET /v1/hotels has the scope hotels:read, if the apikey hasn't the scope, you will got an Insufficient Scopes error.
-
+You can see an example here [hapi-auth-jwt](https://github.com/ryanfitz/hapi-auth-jwt)
