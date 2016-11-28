@@ -5,7 +5,7 @@ const redisClient = require('redis').createClient();
 const secret = process.env.JWT_SECRET || require('../.credentials/jwt.json').secret;// TODO Validar
 const uuid = require('node-uuid');
 const Joi = require('joi');
-const debug = require('debug')('authorization');
+const debug = require('debug')('api:authorization');
 
 const users = require('../lib/users');
 module.exports = [
@@ -24,6 +24,7 @@ module.exports = [
       tags: ['api']
     },
     handler: function (req, reply) {
+      debug('call authorization', req.payload);
       users.getUserByApiKey(req.payload.apikey)
                 .then(function (user) {
                   let payload = {

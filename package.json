@@ -40,6 +40,7 @@
     "mongojs": "^2.4.0",
     "node-uuid": "^1.4.7",
     "redis": "^2.6.3",
+    "request": "^2.79.0",
     "vision": "^4.1.0"
   },
   "devDependencies": {
