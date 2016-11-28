@@ -32,6 +32,7 @@ module.exports = [
                     limit: user.limit,
                     valid: true, // this will be set to false when the person logs out
                     id: uuid.v4(),
+                    scopes: user.scopes,
                     exp: new Date().getTime() + 30 * 60 * 1000 // expires in 30 minutes time
                   };
                     // create the session in Redis

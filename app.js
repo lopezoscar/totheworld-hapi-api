@@ -103,7 +103,8 @@ server.register([
     // bring your own validation function
   var validate = function (decoded, request, callback) {
     redis.get(decoded.id, function (err, data) {
-      return callback(null, !err);
+      let session = JSON.parse(data);
+      return callback(null, !err, {scope: session.scopes});
     });
   };
 

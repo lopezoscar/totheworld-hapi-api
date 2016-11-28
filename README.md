@@ -7,6 +7,7 @@ hotels api with hapi
 * All input validation
 * API Versioning
 * All Endpoints Tests
+* Authorization with scopes
 
 ## API Keys (JWT)
 [hapi-auth-jwt2](https://github.com/dwyl/hapi-auth-jwt2) allows me creates JWT tokens that contains data about the apikey 
@@ -33,4 +34,8 @@ For example: /v1/hotels or /v2/hotels
 ## All Endpoints Tests
 You can tests with mocha every endpoint. Each endpoint need to be send with the Authorization header unless that the endopint
 is a public endpoint.
+
+## Authorization with scopes
+There are scopes associated to each apikey.
+For example: GET /v1/hotels has the scope hotels:read, if the apikey hasn't the scope, you will got an Insufficient Scopes error.
 

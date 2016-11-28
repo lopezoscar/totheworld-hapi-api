@@ -25,7 +25,10 @@ module.exports = [
     method: 'GET',
     path: '/v1/hotels',
     config: {
-      auth: 'jwt',
+      auth: {
+        strategy: 'jwt',
+        scope: ['hotels:read']
+      },
       plugins: {
         'hapi-swagger': {
           responses: baseResponse,

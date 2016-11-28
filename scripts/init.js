@@ -34,7 +34,7 @@ function insertHotels () {
     if (err) {
       console.log(err);
     } else {
-      console.log(result);
+      console.log('HOTELS SAVED OK');
     }
   });
 }
@@ -45,9 +45,10 @@ db.users.drop(function (err, result) {
   } else {
     db.users.insert([
       {
-        'name': 'lopezoscar',
-        'apikey': uuid.v4(),
-        'limit': 10000// 10 mil por hora
+        name: 'lopezoscar',
+        apikey: uuid.v4(),
+        limit: 10000,// 10 mil por hora,
+        scopes: ['hotels:read']
       }
     ], function (err, result) {
       if (err) {
