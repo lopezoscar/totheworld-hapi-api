@@ -16,6 +16,9 @@ const server = new Hapi.Server();
 const port = args['-port'] || process.env.PORT || config.webapp.port || 9090;  // Config application Port
 const swaggerHost = `${config.webapp.host}:${port}` || `localhost:${port}`;  // Config Swagger Host (shown in swagger front doc)
 
+const secret = process.env.JWT_SECRET || require('../.credentials/jwt.json').secret;// TODO Validar
+const redis = require('redis').createClient();// TODO pass production host and port.
+
 server.connection({
   host: '0.0.0.0',
   port,
@@ -27,10 +30,11 @@ server.connection({
 });
 
 server.register([
+  require('hapi-auth-jwt2'),
   {
     register: require('./plugins/redirect'),
     options: {
-      map: { '/': '/docs'}
+      map: {'/': '/docs'}
     }
   },
   Inert,
@@ -53,7 +57,7 @@ server.register([
       title: 'Almundo Hotels API',
       path: '/docs',
       authorization: {
-        field: 'authorization',
+        field: 'Authorization',
         scope: 'header', // header works as well
         placeholder: 'Enter your Token Bearer here'
       },
@@ -76,6 +80,20 @@ server.register([
   if (err) {
     throw err; // something bad happened loading the plugin
   }
+
+    // bring your own validation function
+  var validate = function (decoded, request, callback) {
+    redis.get(decoded.id, function (err, data) {
+      return callback(null, !err);
+    });
+  };
+
+  server.auth.strategy('jwt', 'jwt',
+    {
+      key: secret,
+      validateFunc: validate,
+      verifyOptions: {algorithms: ['HS256']}
+    });
 
   server.route(require('./routes'));
 

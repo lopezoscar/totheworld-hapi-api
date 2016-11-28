@@ -25,6 +25,7 @@ module.exports = [
     method: 'GET',
     path: '/v1/hotels',
     config: {
+      auth: 'jwt',
       plugins: {
         'hapi-swagger': {
           responses: baseResponse,
@@ -34,7 +35,7 @@ module.exports = [
       validate: {
         query: {
           sort: Joi.string().description('Sort Options. +ASC -DESC +price -price'),
-          filter: Joi.string().description("Filter Options.")
+          filter: Joi.string().description('Filter Options.')
         }
       },
       tags: ['api']
