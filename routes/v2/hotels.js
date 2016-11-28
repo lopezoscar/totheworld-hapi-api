@@ -30,6 +30,9 @@ module.exports = [
         'hapi-swagger': {
           responses: baseResponse,
           payloadType: 'json'
+        },
+        'rateLimit': {
+          enabled: true
         }
       },
       validate: {

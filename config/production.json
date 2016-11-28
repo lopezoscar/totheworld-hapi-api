@@ -1,15 +1,15 @@
 {
   "webapp":{
     "host":"localhost",
-    "port":3000,
+    "port":9090,
     "url":"http://localhost:3000"
   },
   "db":{
     "stringconn":"mongodb://localhost:27017/hotels-api",
     "collections":["hotels","users"]
   },
-  "swagger":{
-    "host":"localhost",
-    "port":3001
+  "rate_limit":{
+    "limit": 1,
+    "window": 60
   }
 }

@@ -7,5 +7,9 @@
   "db":{
     "stringconn":"mongodb://localhost:27017/hotels-api",
     "collections":["hotels","users"]
+  },
+  "rate_limit":{
+    "limit": 10,
+    "window": 30
   }
 }
