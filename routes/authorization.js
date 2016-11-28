@@ -26,7 +26,7 @@ module.exports = [
     handler: function (req, reply) {
       users.getUserByApiKey(req.payload.apikey)
                 .then(function (user) {
-                  var payload = {
+                  let payload = {
                     user_id: user._id,
                     limit: user.limit,
                     valid: true, // this will be set to false when the person logs out
@@ -36,8 +36,7 @@ module.exports = [
                     // create the session in Redis
                   redisClient.set(payload.id, JSON.stringify(payload));
                     // sign the session as a JWT
-                  var token = jwt.sign(payload, secret); // synchronous
-                  console.log(token);
+                  let token = jwt.sign(payload, secret); // synchronous
 
                   reply({token: token})
                         .header('Authorization', token);
