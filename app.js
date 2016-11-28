@@ -16,7 +16,7 @@ const server = new Hapi.Server();
 const port = args['-port'] || process.env.PORT || config.webapp.port || 9090;  // Config application Port
 const swaggerHost = `${config.webapp.host}:${port}` || `localhost:${port}`;  // Config Swagger Host (shown in swagger front doc)
 
-const secret = process.env.JWT_SECRET || require('../.credentials/jwt.json').secret;// TODO Validar
+const secret = process.env.JWT_SECRET || require('./.credentials/jwt.json').secret;// TODO Validar
 const redis = require('redis').createClient();// TODO pass production host and port.
 
 server.connection({
