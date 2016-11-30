@@ -15,7 +15,8 @@ const args = require('argsparser').parse();
 const server = new Hapi.Server();
 
 const port = args['-port'] || process.env.PORT || config.webapp.port || 9090;  // Config application Port
-const swaggerHost = `${config.webapp.host}` || `localhost:${port}`;  // Config Swagger Host (shown in swagger front doc)
+
+const swaggerHost = config.swagger.url || `localhost:${config.swagger.port}`;  // Config Swagger Host (shown in swagger front doc)
 
 const secret = process.env.JWT_SECRET || require('./.credentials/jwt.json').secret;// TODO Validar
 const Redis = require('redis');
