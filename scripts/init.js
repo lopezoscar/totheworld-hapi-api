@@ -47,7 +47,7 @@ db.users.drop(function (err, result) {
       {
         name: 'lopezoscar',
         apikey: uuid.v4(),
-        limit: 10000,// 10 mil por hora,
+        limit: 10000, // 10 mil por hora,
         scopes: ['hotels:read']
       }
     ], function (err, result) {

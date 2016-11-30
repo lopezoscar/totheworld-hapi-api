@@ -24,7 +24,7 @@ module.exports = [
       tags: ['api']
     },
     handler: function (req, reply) {
-      debug('call authorization', req.payload);
+      
       users.getUserByApiKey(req.payload.apikey)
                 .then(function (user) {
                   let payload = {

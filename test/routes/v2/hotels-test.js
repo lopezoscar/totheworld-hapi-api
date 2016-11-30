@@ -28,7 +28,7 @@ describe('GET /v2/hotels', function () {
   it('/v2/hotels', function (done) {
     request
             .get('/v2/hotels')
-            .query({limit:10,page:1})
+            .query({limit: 10, page: 1})
             .set('Authorization', _this.token)
             .set('Accept', 'application/json')
             .expect(200)

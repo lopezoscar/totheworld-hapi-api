@@ -5,7 +5,6 @@ const config = require('config');
 const debug = require('debug')('api:app');
 const createBoomError = require('create-boom-error');
 
-
 // Hapi Plugins
 // const Good = require('good');
 const Inert = require('inert');
