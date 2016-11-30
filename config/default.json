@@ -2,7 +2,7 @@
   "webapp":{
     "host":"localhost",
     "port":9090,
-    "url":"http://localhost:3000"
+    "url":"http://localhost:9090"
   },
   "db":{
     "stringconn":"mongodb://localhost:27017/hotels-api",
