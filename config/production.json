@@ -1,8 +1,8 @@
 {
   "webapp":{
     "host":"api.almundo.com",
-    "port":9090,
-    "url":"http://api.almundo.com:9090"
+    "port":80,
+    "url":"http://api.almundo.com"
   },
   "db":{
     "stringconn":"mongodb://localhost:27017/hotels-api",
