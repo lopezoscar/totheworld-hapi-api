@@ -39,3 +39,27 @@ is a public endpoint.
 There are scopes associated to each apikey.
 For example: GET /v1/hotels has the scope hotels:read, if the apikey hasn't the scope, you will got an Insufficient Scopes error.
 You can see an example here [hapi-auth-jwt](https://github.com/ryanfitz/hapi-auth-jwt)
+
+
+## SETUP
+
+### Pre requisites
+* MongoDB
+* Node.js >= 6.0.0
+* Redis
+
+### Install
+```javascript
+git clone https://github.com/lopezoscar/totheworld-hapi-api
+cd totheworld-hapi-api
+npm install
+//create hotels and user with apikey
+npm run setup
+
+//Close the console.
+
+npm start
+```
+
+Once that you have the enviroment ok
+[api.almundo.com](http://api.almundo.com/)
